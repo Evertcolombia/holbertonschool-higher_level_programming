@@ -12,7 +12,7 @@ int check_cycle(listint_t *list)
 	listint_t *address;
 	listint_t *tmp;
 
-	if (list == NULL)
+	if (!list)
 		return (0);
 
 	address = list;
@@ -20,11 +20,12 @@ int check_cycle(listint_t *list)
 
 	while (tmp->next != NULL)
 	{
-		if (address == tmp->next)
+		tmp = tmp->next;
+		if (address == tmp)
 		{
 			return (1);
 		}
-		tmp = tmp->next;
+/*		tmp = tmp->next;*/
 	}
 
 	return (0);
