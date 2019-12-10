@@ -12,4 +12,4 @@ def uppercase(str):
             str2 += chr(ascii_char)
         elif ascii_char > 47 and ascii_char < 58:
             str2 += chr(ascii_char)
-    print("{}\n".format(str2), end='')
+    print("{}".format(str2), end='')
