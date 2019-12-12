@@ -11,7 +11,6 @@ listint_t *insert_node(listint_t **head, __attribute((unused))int number)
 
 	while(current->next)
 	{
-		printf("hola");
 		current = current->next;
 	}
 	return (current);
