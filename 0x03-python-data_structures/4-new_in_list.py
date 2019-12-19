@@ -5,7 +5,7 @@ def new_in_list(my_list, idx, element):
     if (idx > len(my_list)):
         return my_list
     new = my_list.copy()
-    for i in range(len(my_list) - 1):
+    for i in range(len(my_list)):
         if (idx == i):
             new[i] = element
     return new
