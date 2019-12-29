@@ -1,7 +1,8 @@
+#include <stdlib.h>
 #include "lists.h"
 
 /**
- * is_palidrome - Return is a list s palindrome or not
+ * is_palindrome - Return is a list s palindrome or not
  * @head:  double ponter to head
  *
  * Return: 1 on success
@@ -9,45 +10,27 @@
 int is_palindrome(listint_t **head)
 {
 	listint_t *current;
-	int count, i, j;
-	int nums [1024];
+	int count, i;
+	int nums[1024];
 
 	current = *head;
-	count = 0; i = 0;
+	count = 0;
 
 	if (*head == NULL)
 		return (1);
-	j = 0;
-	while (current->next != NULL)
+
+	while (current != NULL)
 	{
-		nums[j] = current->n;
+		nums[count] = current->n;
 		current = current->next;
 		count++;
 	}
 
-	if (count  % 2 == 0)
+	for (i = 0; i < count; i++)
 	{
-		printf("pasa");
-		return (0);
-	}
-	else
-	{
-		j = count;
-		for (i = 0; i < count / 2; i++)
-		{
-			if (nums[i] == nums[j])
-			{
-				printf("hhappens");
-				i++;
-				j--;
-
-			}
-			else
-			{
-				printf("pasa en else");
-				return (0);
-			}
-		}
-		return (1);
-	}
+		if (nums[i] == nums[count - 1])
+			count--;
+		else
+			return (0);
+	} return (1);
 }
