@@ -11,7 +11,7 @@ int is_palindrome(listint_t **head)
 {
 	listint_t *current;
 	int count, i;
-	int nums[1024];
+	int nums[10000];
 
 	current = *head;
 	count = 0;
