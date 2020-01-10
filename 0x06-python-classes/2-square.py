@@ -11,6 +11,10 @@ class Square:
         """
         Args:
             size: swuare size
+
+        Raises:
+            TypeError: if size is not type int
+            ValueError: if size is negative
         """
         self.__size = size
 
