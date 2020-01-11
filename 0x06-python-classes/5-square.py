@@ -11,10 +11,10 @@ class Square:
         if self.__size == 0:
             print("")
         else:
-             for num in range(self.__size):
-                 for num in range(self.__size):
-                     print("#", end="")
-                 print("")
+            for num in range(self.__size):
+                for num in range(self.__size):
+                    print("#", end="")
+                print("")
 
     @property
     def size(self):
