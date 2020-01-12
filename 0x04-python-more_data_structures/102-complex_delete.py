@@ -7,4 +7,4 @@ def complex_delete(a_dictionary, value):
             continue
     for i in delete:
         del a_dictionary[i]
-    return a_dictionary   
+    return a_dictionary
