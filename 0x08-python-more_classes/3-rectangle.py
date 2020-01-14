@@ -48,3 +48,17 @@ class Rectangle:
         if value < 0:
             raise ValueError("height must be >= 0")
         self.__height = value
+
+    def __str__(self):
+        string = ""
+        if self.__width == 0 or self.__height == 0:
+            return string
+
+        else:
+            for i in range(self.__height):
+                for j in range(self.__width):
+                    string += "#"
+                if i < (self.height - 1):
+                    string += "\n"
+
+            return string
