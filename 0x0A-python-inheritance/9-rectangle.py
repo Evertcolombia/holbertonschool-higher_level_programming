@@ -6,7 +6,9 @@ class BaseGeometry:
     Class definition: BaseGeometry
     """
     def area(self):
-         
+         #res = self.__width * self.height
+         #print(res)
+         pass
 
     def integer_validator(self, name, value):
         self.name = name
@@ -23,8 +25,13 @@ class Rectangle(BaseGeometry):
     Subclass defintion: Rectangle
     """
     def __init__(self, width, height):
+        self.__width = width
+        self.__height = height
         self.integer_validator("width", width)
         self.integer_validator("height", height)
+        #self.area(self)
 
     def __str__(self):
-        return '[Rectangle] {self.__width} / {self.height}'.format(self(self=self))
+        a, b = str(self.__width), str(self.__height)
+        string = ("[Rectangle] " + a + "/" + b + "\n")
+        return string[:-1]
