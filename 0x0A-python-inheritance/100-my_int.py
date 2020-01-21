@@ -3,7 +3,7 @@
 class MyInt(int):
 
     def __eq__(self, other):
-        if type(self) is type(other):
+        if int(self) == int(other):
             return False
         else:
             return True
