@@ -14,7 +14,7 @@ class BaseGeometry:
         self.name = name
         self.value = value
 
-        if isinstance(self.value, int) == False:
+        if type(value) is not int:
             raise TypeError(self.name + " must be an integer")
-        if value < 1:
+        if value <= 0:
             raise ValueError(self.name + " must be grather than 0")
