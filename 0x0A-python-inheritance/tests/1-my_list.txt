@@ -1,0 +1,38 @@
+----------------------------------
+``1-my_list`` module checker     =
+----------------------------------
+
+>>> len(__import__("1-my_list").__doc__) > 5
+True
+>>> len(__import__("1-my_list").MyList.__doc__) > 5
+True
+
+>>> MyList = __import__('1-my_list').MyList
+
+Test cases:
+
+unsorted list
+>>> MyList.print_sorted([6, 1, 0, 3, 5, 4, 2])
+[0, 1, 2, 3, 4, 5, 6]
+
+non integer element
+>>> MyList.print_sorted([a], 2, 1, 8, 6])
+Traceback (most recent call last):
+...
+TypeError: unorderable types: int() < list()
+
+negative elements
+>>> MyList.print_sorted([4, 1, -2, 5, 0, -4])
+[-4, -2, 0, 1, 4, 5]
+
+is subclass
+>>> issubclass(MyList, list)
+True
+
+is instance
+>>> isinstance(MyList([]), list)
+True
+
+type
+>>> type(MyList([]))
+<class '1-my_list.MyList'>
