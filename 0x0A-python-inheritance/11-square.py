@@ -47,6 +47,6 @@ class Square(Rectangle):
 
     def __str__(self):
         a = str(self.__size)
-        st = ("[Rectangle] " + a + "/" + a + "\n")
+        st = ("[Square] " + a + "/" + a + "\n")
         return st[:-1]
 
