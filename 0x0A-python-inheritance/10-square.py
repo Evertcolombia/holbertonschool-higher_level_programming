@@ -1,5 +1,7 @@
 #!/usr/bin/python3
 
+#!/usr/bin/python3
+
 
 class BaseGeometry:
     """
@@ -23,15 +25,25 @@ class Rectangle(BaseGeometry):
     Subclass defintion: Rectangle
     """
     def __init__(self, width, height):
-        self.__width = width
-        self.__height = height
         self.integer_validator("width", width)
         self.integer_validator("height", height)
+
+        self.__width = width
+        self.__height = height
 
     def area(self):
         return self.__width * self.__height
 
     def __str__(self):
-        a, b = str(self.__width), str(self.__height)
-        string = ("[Rectangle] " + a + "/" + b + "\n")
-        return string[:-1]
+        st = ("[Rectangle] " + str(self.__width) + "/" + str(self.__height) + "\n")
+        return st[:-1]
+
+
+class Square(Rectangle):
+
+    def __init__(self, size):
+        self.integer_validator("size", size)
+        self.__size = size
+
+    def area(self):
+        return self.__size * self.__size
