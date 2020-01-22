@@ -14,3 +14,8 @@ if not os.path.exists(file_name):
         f.write("[]")
 
 python_file = load_from_json_file(file_name)
+
+for i in range(1, lenght):
+    python_file += [sys.argv[i]]
+
+save_to_json_file(python_file, file_name)
