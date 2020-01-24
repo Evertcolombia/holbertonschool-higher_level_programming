@@ -1,45 +1,60 @@
 #!/usr/bin/python3
 from models.base import Base
 
+
 class Rectangle(Base):
 
     def __init__(self, width, height, x=0, y=0, id=None):
         super().__init__(id)
-        self.__width = width
-        self.__height = height
-
-        #self.__y = x_y_validation(y, "y")
-        #self.__x = x_y_validation(x, "x")
-        self.__y = y
-        self.__x = x
+        self.width = width
+        self.height = height
+        self.y = y
+        self.x = x
 
     @property
     def width(self):
-        print("@property.width class method called")
         return self.__width
 
+    @width.setter
+    def width(self, value):
+        self.validation("width", value)
+        self.__width = value
+
     @property
     def height(self):
-        print("@property.height class method called")
         return self.__height
 
-    @width.setter
-    def width(self):
-        self.__width = validation(width, "width")
-
     @height.setter
-    def height(self):
-        self__height = validation(height, "height")
+    def height(self, value):
+        self.validation("height", value)
+        self.__height = value
 
-    def validation(self.__width, val=""):
-        if type(self) != int:
-            raise TypeError("{} must be an integer",format(val))
+    @property
+    def x(self):
+        return self.__x
 
-        if value <= 0:
-            raise ValueError("{} must be > 0".format(val))
+    @x.setter
+    def x(self, value):
+        self.validation("x", value)
+        self.__x = value
 
-    #def x_y_validation(self, value, val=""):
-     #   if type(value) != int:
-      #      raise TypeError("{} must be an integer".format(val))
-       # if value < 0:
-        #    raise ValueError("{} must be >= 0". format(val))
+    @property
+    def y(self):
+        return self.__y
+
+    @y.setter
+    def y(self, value):
+        self.validation("y", value)
+        self.__y = value
+
+    def validation(self, name, value):
+
+        if type(value) is not int:
+                raise TypeError("{} must be an integer".format(name))
+
+        if name == "x" or name == "y":
+            if value < 0:
+                raise ValueError("{} must be >= 0".format(name))
+        else:
+            if value <= 0:
+                raise ValueError("{} must be > 0".format(name))
