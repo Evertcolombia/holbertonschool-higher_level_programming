@@ -7,6 +7,9 @@ class Rectangle(Base):
         super().__init__(id)
         self.__width = width
         self.__height = height
+
+        #self.__y = x_y_validation(y, "y")
+        #self.__x = x_y_validation(x, "x")
         self.__y = y
         self.__x = x
 
@@ -22,10 +25,21 @@ class Rectangle(Base):
 
     @width.setter
     def width(self):
-        print("@width.setter clas method called")
-        self.__width = width
+        self.__width = validation(width, "width")
 
     @height.setter
     def height(self):
-        print("@height.setter clas method called")
-        self.__height = height
+        self__height = validation(height, "height")
+
+    def validation(self.__width, val=""):
+        if type(self) != int:
+            raise TypeError("{} must be an integer",format(val))
+
+        if value <= 0:
+            raise ValueError("{} must be > 0".format(val))
+
+    #def x_y_validation(self, value, val=""):
+     #   if type(value) != int:
+      #      raise TypeError("{} must be an integer".format(val))
+       # if value < 0:
+        #    raise ValueError("{} must be >= 0". format(val))
