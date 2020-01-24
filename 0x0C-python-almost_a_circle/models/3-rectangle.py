@@ -64,7 +64,3 @@ class Rectangle(Base):
 
     def display(self):
             print(("#" * self.__width + '\n') * self.__height, end='')
-
-    def __str__(self):
-        return "[{}] ({}) {}/{} - {}/{}".format("Rectangle", \
-        self.id, self.__width, self.__height, self.__x, self.__y)
