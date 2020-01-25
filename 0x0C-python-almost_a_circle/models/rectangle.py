@@ -1,5 +1,6 @@
 #!/usr/bin/python3
 from models.base import Base
+import json
 
 
 class Rectangle(Base):
@@ -96,3 +97,11 @@ class Rectangle(Base):
                     self.x = v
                 if (k == "y"):
                     self.y = v
+
+    def to_dictionary(self):
+        l = ["id", "width", "height", "x", "y"]
+        d = {}
+        for attr in l:
+            a = {attr: getattr(self, attr)}
+            d.update(a)
+        return d
