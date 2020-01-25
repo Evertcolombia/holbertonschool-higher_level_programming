@@ -73,13 +73,14 @@ class Rectangle(Base):
         self.id, self.__width, self.__height, self.__x, self.__y)
 
     def update(self, *args):
-        self.id = args[0]
-        for arg in args:
-            if (i == 2):
-                self.__x = arg
-            if (i == 3):
-                self.__y = arg
-            if (i == 4):
-                self.__width = arg
-            if (i == 5):
-                self.__height = arg
+        if len(args) > 0:
+            self.id = args[0]
+            for i, arg in enumerate(args):
+                if (i == 1):
+                    self.x = arg
+                if (i == 2):
+                    self.y = arg
+                if (i == 3):
+                    self.width = arg
+                if (i == 4):
+                    self.height = arg
