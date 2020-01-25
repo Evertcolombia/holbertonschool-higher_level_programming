@@ -72,8 +72,8 @@ class Rectangle(Base):
         return "[{}] ({}) {}/{} - {}/{}".format("Rectangle", \
         self.id, self.__width, self.__height, self.__x, self.__y)
 
-    def update(self, *args, **kwargs):
-        if len(args) > 0 and args is not None:
+    def update(self, *args):
+        if len(args) > 0:
             self.id = args[0]
             for i, arg in enumerate(args):
                 if (i == 1):
@@ -84,15 +84,3 @@ class Rectangle(Base):
                     self.width = arg
                 if (i == 4):
                     self.height = arg
-        elif len(kwargs) > 0 and kwargs is not None:
-            for k, v in kwargs.items():
-                if (k == "id"):
-                    self.id = v
-                if (k == "width"):
-                    self.width = v
-                if (k == "height"):
-                    self.height = v
-                if (k == "x"):
-                    self.x = v
-                if (k == "y"):
-                    self.y = v
