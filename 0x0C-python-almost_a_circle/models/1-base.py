@@ -14,19 +14,11 @@ class Base:
 
     @staticmethod
     def to_json_string(list_dictionaries):
-
         if list_dictionaries is None:
             return "[]"
+
         to_json = json.dumps(list_dictionaries)
         return to_json
-
-    @staticmethod
-    def from_json_string(json_string):
-
-        if json_string is None:
-            return "[]"
-        to_str = json.loads(json_string)
-        return list(to_str)
 
     @classmethod
     def save_to_file(cls, list_obj):
