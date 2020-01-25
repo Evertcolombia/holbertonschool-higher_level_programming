@@ -71,15 +71,3 @@ class Rectangle(Base):
     def __str__(self):
         return "[{}] ({}) {}/{} - {}/{}".format("Rectangle", \
         self.id, self.__width, self.__height, self.__x, self.__y)
-
-    def update(self, *args):
-        self.id = args[0]
-        for arg in args:
-            if (i == 2):
-                self.__x = arg
-            if (i == 3):
-                self.__y = arg
-            if (i == 4):
-                self.__width = arg
-            if (i == 5):
-                self.__height = arg
