@@ -69,7 +69,7 @@ class Rectangle(Base):
             print((" " * self.__x + "#" * w + '\n') * h, end='')
 
     def __str__(self):
-        return "[{}] ({}) {}/{} - {}/{}".format("Rectangle", \
+        return "[Rectangle] ({}) {}/{} - {}/{}".format(\
         self.id, self.__width, self.__height, self.__x, self.__y)
 
     def update(self, *args, **kwargs):
