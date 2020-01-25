@@ -20,3 +20,25 @@ class Square(Rectangle):
         self.validation("width", value)
         self.width = value
         self.height = value
+
+    def update(self, *args, **kwargs):
+        if len(args) > 0 and args is not None:
+            self.id = args[0]
+            for i, arg in enumerate(args):
+                if (i == 1):
+                    self.size = arg
+                if (i == 2):
+                    self.x = arg
+                if (i == 3):
+                    self.y = arg
+
+        elif len(kwargs) > 0 and kwargs is not None:
+            for k, v in kwargs.items():
+                if (k == "id"):
+                    self.id = v
+                if (k == "size"):
+                    self.size = v
+                if (k == "x"):
+                    self.x = v
+                if (k == "y"):
+                    self.y = v
