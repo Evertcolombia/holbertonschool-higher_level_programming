@@ -52,4 +52,12 @@ class Base:
     def create(cls, **dictionary):
         dummy = cls(1, 1, 1, 1,)
         dummy.update(**dictionary)
-        return dummy
+       return dummy
+
+    @classmethod
+    def load_from_file(cls):
+        name = cls.__name__
+        filename = str(name + ".json")
+
+        with open(filename, encoding='utf-8') as f:
+            from_json_string()
