@@ -3,7 +3,7 @@
 This is module define the base class (super class)
 """
 
-
+import os.path
 import json
 
 
@@ -55,9 +55,9 @@ class Base:
 
         """
         if json_string is None:
-            return "[]"
+            return []
         to_str = json.loads(json_string)
-        return list(to_str)
+        return to_str
 
     @classmethod
     def save_to_file(cls, list_obj):
@@ -113,5 +113,15 @@ class Base:
         name = cls.__name__
         filename = str(name + ".json")
 
-        with open(filename, encoding='utf-8') as f:
-            from_json_string()
+        if os.path.exists(filename) is None:
+            return []
+        else:
+            with open(filename, mode='r', encoding='utf-8') as f:
+                lines = f.read()
+                list_dictionaries = cls.from_json_string(lines)
+            empty_list = []
+
+            for dic in list_dictionaries:
+                obj = cls.create(**dic)
+                empty_list.append(obj)
+        return empty_list
