@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """
-This is module define the base class (super class)
+    This is module define the base class (super class)
 """
 
 
@@ -18,7 +18,7 @@ class Rectangle(Base):
 
     """
     def __init__(self, width, height, x=0, y=0, id=None):
-        """ 
+        """
         Validate values
 
         """
@@ -30,7 +30,7 @@ class Rectangle(Base):
 
     @property
     def width(self):
-        """ 
+        """
             getter for width
 
         """
@@ -38,7 +38,7 @@ class Rectangle(Base):
 
     @width.setter
     def width(self, value):
-        """ 
+        """
             setter for width
 
         """
@@ -47,7 +47,7 @@ class Rectangle(Base):
 
     @property
     def height(self):
-        """ 
+        """
             getter for height
 
         """
@@ -55,7 +55,7 @@ class Rectangle(Base):
 
     @height.setter
     def height(self, value):
-        """ 
+        """
         setter for height
 
         """
@@ -64,7 +64,7 @@ class Rectangle(Base):
 
     @property
     def x(self):
-        """ 
+        """
             getter for x
 
         """
@@ -72,7 +72,7 @@ class Rectangle(Base):
 
     @x.setter
     def x(self, value):
-        """ 
+        """
             setter for x
 
         """
@@ -81,7 +81,7 @@ class Rectangle(Base):
 
     @property
     def y(self):
-        """ 
+        """
             getter for y
 
         """
@@ -89,7 +89,7 @@ class Rectangle(Base):
 
     @y.setter
     def y(self, value):
-        """ 
+        """
             setter for y
 
         """
@@ -97,7 +97,7 @@ class Rectangle(Base):
         self.__y = value
 
     def validation(self, name, value):
-        """ 
+        """
             validate if the arguments can passed to the instance
 
             Args:
@@ -138,8 +138,9 @@ class Rectangle(Base):
         """
             strng representation of the  instance
         """
-        return "[Rectangle] ({}) {}/{} - {}/{}".format(\
-        self.id, self.__width, self.__height, self.__x, self.__y)
+        a = "[Rectangle] ({}) {}/{} - {}/{}"
+        s = self.id
+        return a.format(s, self.__width, self.__height, self.__x, self.__y)
 
     def update(self, *args, **kwargs):
         """
