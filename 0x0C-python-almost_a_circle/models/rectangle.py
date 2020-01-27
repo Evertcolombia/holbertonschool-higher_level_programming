@@ -142,7 +142,7 @@ class Rectangle(Base):
         a = "[{}] ({}) {}/{} - {}/{}"
         s_i = self.id
         s_x = self.x
-        return a.format(c_n, s, s_x, self.__y, self.__width, self.__height)
+        return a.format(c_n, s_i, s_x, self.__y, self.__width, self.__height)
 
     def update(self, *args, **kwargs):
         """
