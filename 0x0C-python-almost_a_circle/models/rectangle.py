@@ -1,10 +1,27 @@
 #!/usr/bin/python3
+"""
+This is module define the base class (super class)
+"""
+
+
 from models.base import Base
 
 
 class Rectangle(Base):
+    """Class Rectangle
 
+    Attributes:
+        attr1 (width): width size for rectangle
+        attr2 (height): height size for rectangle
+        attr3 (x): x cordenade
+        attr1 (y): y cordenade
+
+    """
     def __init__(self, width, height, x=0, y=0, id=None):
+        """ 
+        Validate values
+
+        """
         super().__init__(id)
         self.width = width
         self.height = height
@@ -13,42 +30,81 @@ class Rectangle(Base):
 
     @property
     def width(self):
+        """ 
+            getter for width
+
+        """
         return self.__width
 
     @width.setter
     def width(self, value):
+        """ 
+            setter for width
+
+        """
         self.validation("width", value)
         self.__width = value
 
     @property
     def height(self):
+        """ 
+            getter for height
+
+        """
         return self.__height
 
     @height.setter
     def height(self, value):
+        """ 
+        setter for height
+
+        """
         self.validation("height", value)
         self.__height = value
 
     @property
     def x(self):
+        """ 
+            getter for x
+
+        """
         return self.__x
 
     @x.setter
     def x(self, value):
+        """ 
+            setter for x
+
+        """
         self.validation("x", value)
         self.__x = value
 
     @property
     def y(self):
+        """ 
+            getter for y
+
+        """
         return self.__y
 
     @y.setter
     def y(self, value):
+        """ 
+            setter for y
+
+        """
         self.validation("y", value)
         self.__y = value
 
     def validation(self, name, value):
+        """ 
+            validate if the arguments can passed to the instance
 
+            Args:
+                param1 (name): name of argument
+                params (value):  value
+
+        """
         if type(value) is not int:
                 raise TypeError("{} must be an integer".format(name))
 
@@ -60,19 +116,39 @@ class Rectangle(Base):
                 raise ValueError("{} must be > 0".format(name))
 
     def area(self):
+        """
+            calculate area of rectangle
+
+            Args:
+                 param1 (cls): class reference
+                 param1 (**dictionary): awkward
+        """
         return self.__width * self.__height
 
     def display(self):
-            w = self.__width
-            h = self.__height
-            print('\n' * self.__y, end='')
-            print((" " * self.__x + "#" * w + '\n') * h, end='')
+        """
+            dyplay a rectangle
+        """
+        w = self.__width
+        h = self.__height
+        print('\n' * self.__y, end='')
+        print((" " * self.__x + "#" * w + '\n') * h, end='')
 
     def __str__(self):
+        """
+            strng representation of the  instance
+        """
         return "[Rectangle] ({}) {}/{} - {}/{}".format(\
         self.id, self.__width, self.__height, self.__x, self.__y)
 
     def update(self, *args, **kwargs):
+        """
+            update value of arguments
+
+            Args:
+                 param1 (*args): argc
+                 param1 (**kwargs): awkward
+        """
         if len(args) > 0 and args is not None:
             self.id = args[0]
             for i, arg in enumerate(args):
@@ -98,6 +174,9 @@ class Rectangle(Base):
                     self.y = v
 
     def to_dictionary(self):
+        """
+            convert to dictionary
+        """
         l = ["id", "width", "height", "x", "y"]
         d = {}
 
