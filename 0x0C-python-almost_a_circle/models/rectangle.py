@@ -138,9 +138,10 @@ class Rectangle(Base):
         """
             strng representation of the  instance
         """
-        a = "[Rectangle] ({}) {}/{} - {}/{}"
+        c_n = __class__.__name__
+        a = "[{}] ({}) {}/{} - {}/{}"
         s = self.id
-        return a.format(s, self.__width, self.__height, self.__x, self.__y)
+        return a.format(c_n, s, self.__x, self.__y, self.__width, self.__height)
 
     def update(self, *args, **kwargs):
         """
