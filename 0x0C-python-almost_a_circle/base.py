@@ -1,24 +1,11 @@
 #!/usr/bin/python3
 import json
 
-
 class Base:
-    """Class Base
 
-    Private attribute __nb_objects to count instances
-
-    Attributes:
-        attr1 (id): id of the instanc
-
-    """
     __nb_objects = 0
 
     def __init__(self, id=None):
-        """ Validate the id and set it
-        Args:
-            param1 (id): Id for each intance of Base class
-
-        """
         if id is not None:
             self.id = id
         else:
@@ -26,11 +13,6 @@ class Base:
             self.id = __class__.__nb_objects
 
     @staticmethod
-    """ 
-        Args:
-            param1 (id): Id for each intance of Base class
-
-    """
     def to_json_string(list_dictionaries):
 
         if list_dictionaries is None:
@@ -79,3 +61,4 @@ class Base:
 
         with open(filename, encoding='utf-8') as f:
             from_json_string()
+
