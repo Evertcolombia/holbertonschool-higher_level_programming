@@ -61,7 +61,7 @@ class Base:
 
     @classmethod
     def save_to_file(cls, list_obj):
-        """ classmethod save to file 
+        """classmethod save to file
             save a a file with a list of obects converted in dictionaries
 
             Args:
@@ -107,7 +107,7 @@ class Base:
         """
             calculate area of rectangle
         """
-	name = cls.__name__
+        name = cls.__name__
         filename = str(name + ".json")
 
         with open(filename, encoding='utf-8') as f:
