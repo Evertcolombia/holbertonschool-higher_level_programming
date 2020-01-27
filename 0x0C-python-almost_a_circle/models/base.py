@@ -97,14 +97,17 @@ class Base:
                 param1 (cls): class reference
                 param1 (**dictionary): awkwards
 
-    """
+        """
         dummy = cls(1, 1, 1, 1,)
         dummy.update(**dictionary)
         return dummy
 
     @classmethod
     def load_from_file(cls):
-        name = cls.__name__
+        """
+            calculate area of rectangle
+        """
+	name = cls.__name__
         filename = str(name + ".json")
 
         with open(filename, encoding='utf-8') as f:
