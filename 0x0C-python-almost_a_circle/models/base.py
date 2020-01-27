@@ -31,46 +31,44 @@ class Base:
             self.id = __class__.__nb_objects
 
     @staticmethod
-    """ staticmethod to_json_string
-
-        This method converts a lis of dictioanries to json string
-
-        Args
-            param1 (list_dictionaries): list of dictionaries
-
-    """
     def to_json_string(list_dictionaries):
+        """ staticmethod to_json_string
 
+            This method converts a lis of dictioanries to json string
+
+            Args
+                param1 (list_dictionaries): list of dictionaries
+
+        """
         if list_dictionaries is None:
             return "[]"
         to_json = json.dumps(list_dictionaries)
         return to_json
 
     @staticmethod
-    """ static method from_json_string
-        converts json in sting
-
-        Args:
-            param1 (json_string): string to convert
-
-    """
     def from_json_string(json_string):
+        """ static method from_json_string
+            converts json in sting
 
+            Args:
+                param1 (json_string): string to convert
+
+        """
         if json_string is None:
             return "[]"
         to_str = json.loads(json_string)
         return list(to_str)
 
     @classmethod
-    """ classmethod save to file 
-        save a a file with a list of obects converted in dictionaries
-
-        Args:
-            param1 (cls): class reference
-            parama2 (list_obj): list of objects
-
-    """
     def save_to_file(cls, list_obj):
+        """ classmethod save to file 
+            save a a file with a list of obects converted in dictionaries
+
+            Args:
+                param1 (cls): class reference
+                parama2 (list_obj): list of objects
+
+        """
         name = cls.__name__
         filename = str(name + ".json")
 
@@ -90,16 +88,16 @@ class Base:
                 f.write("]")
 
     @classmethod
-    """ class method create
-        create a new instance of the referencd class passed in cls
-        and uptade the instance with **awkwards
+    def create(cls, **dictionary):
+        """ class method create
+            create a new instance of the referencd class passed in cls
+            and uptade the instance with **awkwards
 
-        Args:
-            param1 (cls): class reference
-            param1 (**dictionary): awkwards
+            Args:
+                param1 (cls): class reference
+                param1 (**dictionary): awkwards
 
     """
-    def create(cls, **dictionary):
         dummy = cls(1, 1, 1, 1,)
         dummy.update(**dictionary)
        return dummy
