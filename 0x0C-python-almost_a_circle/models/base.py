@@ -26,9 +26,12 @@ class Base:
             self.id = __class__.__nb_objects
 
     @staticmethod
-    """ 
-        Args:
-            param1 (id): Id for each intance of Base class
+    """ staticmethod to_json_string
+
+        This method converts a lis of dictioanries to json string
+
+        Args
+            param1 (list_dictionaries): list of dictionaries
 
     """
     def to_json_string(list_dictionaries):
@@ -39,6 +42,13 @@ class Base:
         return to_json
 
     @staticmethod
+    """ static method from_json_string
+        converts json in sting
+
+        Args:
+            param1 (json_string): string to convert
+
+    """
     def from_json_string(json_string):
 
         if json_string is None:
