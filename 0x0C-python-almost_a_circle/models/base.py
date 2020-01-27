@@ -98,7 +98,10 @@ class Base:
                 param1 (**dictionary): awkwards
 
         """
-        dummy = cls(1, 1, 1, 1,)
+        if cls.__name__ == 'Rectangle':
+            dummy = cls(1, 1, 1, 1,)
+        elif cls.__name__ == 'Square':
+            dummy = cls(9,46)
         dummy.update(**dictionary)
         return dummy
 
