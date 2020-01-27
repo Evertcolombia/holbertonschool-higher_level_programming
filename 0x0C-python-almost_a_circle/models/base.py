@@ -3,7 +3,6 @@
 This is module define the base class (super class)
 """
 
-import os.path
 import json
 
 
@@ -113,9 +112,7 @@ class Base:
         name = cls.__name__
         filename = str(name + ".json")
 
-        if os.path.exists(filename) is None:
-            return []
-        else:
+        try:
             with open(filename, mode='r', encoding='utf-8') as f:
                 lines = f.read()
                 list_dictionaries = cls.from_json_string(lines)
@@ -124,4 +121,6 @@ class Base:
             for dic in list_dictionaries:
                 obj = cls.create(**dic)
                 empty_list.append(obj)
-        return empty_list
+            return empty_list
+        except IOError:
+            return []
