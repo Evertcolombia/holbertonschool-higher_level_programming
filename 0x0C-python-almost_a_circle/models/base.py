@@ -1,4 +1,9 @@
 #!/usr/bin/python3
+"""
+This is module define the base class (super class)
+"""
+
+
 import json
 
 
@@ -57,6 +62,14 @@ class Base:
         return list(to_str)
 
     @classmethod
+    """ classmethod save to file 
+        save a a file with a list of obects converted in dictionaries
+
+        Args:
+            param1 (cls): class reference
+            parama2 (list_obj): list of objects
+
+    """
     def save_to_file(cls, list_obj):
         name = cls.__name__
         filename = str(name + ".json")
@@ -77,6 +90,15 @@ class Base:
                 f.write("]")
 
     @classmethod
+    """ class method create
+        create a new instance of the referencd class passed in cls
+        and uptade the instance with **awkwards
+
+        Args:
+            param1 (cls): class reference
+            param1 (**dictionary): awkwards
+
+    """
     def create(cls, **dictionary):
         dummy = cls(1, 1, 1, 1,)
         dummy.update(**dictionary)
