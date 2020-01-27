@@ -153,19 +153,22 @@ class Rectangle(Base):
                  param1 (**kwargs): awkward
         """
         if len(args) > 0 and args is not None:
-            self.id = args[0]
             for i, arg in enumerate(args):
+                if (i == 0):
+                    super().__init__(arg)
+                    self.id = arg
                 if (i == 1):
-                    self.x = arg
-                if (i == 2):
-                    self.y = arg
-                if (i == 3):
                     self.width = arg
-                if (i == 4):
+                if (i == 2):
                     self.height = arg
+                if (i == 3):
+                    self.x = arg
+                if (i == 4):
+                    self.y = arg
         elif len(kwargs) > 0 and kwargs is not None:
             for k, v in kwargs.items():
                 if (k == "id"):
+                    super().__init__(v)
                     self.id = v
                 if (k == "width"):
                     self.width = v
