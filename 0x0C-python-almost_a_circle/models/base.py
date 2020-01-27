@@ -103,6 +103,7 @@ class Base:
             dummy.update(**dictionary)
         elif cls.__name__ == 'Square':
             dummy = cls(9)
+        dummy.update(**dictionary)
         return dummy
 
     @classmethod
