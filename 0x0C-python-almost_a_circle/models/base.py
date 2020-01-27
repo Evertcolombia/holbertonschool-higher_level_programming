@@ -72,11 +72,11 @@ class Base:
         name = cls.__name__
         filename = str(name + ".json")
 
-        with open(filename, mode='a', encoding='utf-8') as f:
+        with open(filename, mode='w', encoding='utf-8') as f:
             flag = 0
 
             if list_obj is None:
-                f.write("[]")
+                f.write(json.dumps([]))
             else:
                 f.write("[")
                 for el in list_obj:
