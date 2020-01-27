@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """
-    This is module define the base class (super class)
+    This is module define the Square class
 """
 
 
