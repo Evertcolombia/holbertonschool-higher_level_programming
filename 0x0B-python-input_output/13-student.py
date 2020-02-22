@@ -16,6 +16,6 @@ class Student:
             return {z: d[z] for atr in attrs for z in d if z == atr}
 
     def reload_from_json(self, json):
-        for key, v in json.items():
+        for k, v in json.items():
             setattr(self, k, v)
            
