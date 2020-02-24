@@ -19,17 +19,23 @@ allowed_codes = {
 count = 0
 file_size = 0
 
-for line in sys.stdin:
+try:
+    for line in sys.stdin:
 
-    if count == 10:
-        ten_times(file_size, allowed_codes)
-        count = 0
+        if count == 10:
+            ten_times(file_size, allowed_codes)
+            count = 0
 
-    split_line = line.split()
-    status_code = split_line[7]
-    file_size += int(split_line[8])
+        split_line = line.split()
+        status_code = split_line[7]
+        file_size += int(split_line[8])
 
-    if status_code in allowed_codes.keys():
-        allowed_codes[status_code] += 1
+        if status_code in allowed_codes.keys():
+            allowed_codes[status_code] += 1
 
-    count += 1
+        count += 1
+
+    ten_times(file_size, allowed_codes)
+except KeyboardInterrupt:
+    ten_times(file_size, allowed_codes)
+    raise
