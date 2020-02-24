@@ -27,8 +27,9 @@ try:
             count = 0
 
         split_line = line.split()
-        status_code = split_line[7]
-        file_size += int(split_line[8])
+        if split_line[7] and split_line[8]:
+            status_code = split_line[7]
+            file_size += int(split_line[8])
 
         if status_code in allowed_codes.keys():
             allowed_codes[status_code] += 1
