@@ -11,6 +11,13 @@ def ten_times(file_size, allowed_codes):
         if val != 0:
             print("{}: {:d}".format(key, val))
 
+def try_values(value):
+    try:
+        size = int(value)
+        return size
+    except:
+        pass
+
 allowed_codes = {
     '200': 0, '301': 0, '400': 0, '401': 0,
     '403': 0, '404': 0, '405': 0, '500': 0
@@ -27,12 +34,14 @@ try:
             count = 0
 
         split_line = line.split()
-        if split_line[7] and type(split_line[8]) == int:
+        if split_line[7] and split_line[8]:
             status_code = split_line[7]
-            file_size += int(split_line[8])
+            size = try_values(split_line[8])
+#            file_size += int(split_line[8])
+            file_size += size
 
-        if status_code in allowed_codes.keys():
-            allowed_codes[status_code] += 1
+         if status_code in allowed_codes.keys():
+                allowed_codes[status_code] += 1
 
         count += 1
 
