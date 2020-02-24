@@ -27,7 +27,7 @@ try:
             count = 0
 
         split_line = line.split()
-        if split_line[7] and split_line[8]:
+        if split_line[7] and type(split_line[8]) != int:
             status_code = split_line[7]
             file_size += int(split_line[8])
 
