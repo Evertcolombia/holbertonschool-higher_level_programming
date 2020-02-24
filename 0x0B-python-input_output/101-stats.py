@@ -21,7 +21,9 @@ file_size = 0
 
 for line in sys.stdin:
 
-    count += 1
+    if count == 10:
+        ten_times(file_size, allowed_codes)
+        count = 0
 
     split_line = line.split()
     status_code = split_line[7]
@@ -30,8 +32,4 @@ for line in sys.stdin:
     if status_code in allowed_codes.keys():
         allowed_codes[status_code] += 1
 
-    if count == 10:
-        ten_times(file_size, allowed_codes)
-        count = 0
-
-
+    count += 1
