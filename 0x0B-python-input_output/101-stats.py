@@ -34,8 +34,11 @@ for line in sys.stdin:
         count = 0
 
     split_line = line.split()
-    if split_line[7] and split_line[7] in allowed_codes.keys():
-        allowed_codes[split_line[7]] += 1
+    try:
+        if split_line[7] and split_line[7] in allowed_codes.keys():
+            allowed_codes[split_line[7]] += 1
+    except:
+        pass
 
     try:
         size = int(split_line[8])
