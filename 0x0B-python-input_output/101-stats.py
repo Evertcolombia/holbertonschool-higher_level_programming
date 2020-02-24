@@ -10,6 +10,7 @@ allowed_codes = {
     '403': 0, '404': 0, '405': 0, '500': 0
 }
 
+
 def ten_times(file_size, allowed_codes):
 
     print("File size: {:d}".format(file_size))
@@ -18,6 +19,7 @@ def ten_times(file_size, allowed_codes):
         val = allowed_codes.get(key)
         if val != 0:
             print("{}: {:d}".format(key, val))
+
 
 def handler(signal_received, frame):
     ten_times(file_size, allowed_codes)
@@ -42,5 +44,3 @@ for line in sys.stdin:
         pass
 
     count += 1
-
-ten_times(file_size, allowed_codes)
