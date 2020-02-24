@@ -35,8 +35,8 @@ for line in sys.stdin:
 
     split_line = line.split()
     try:
-        if split_line[7] and split_line[7] in allowed_codes.keys():
-            allowed_codes[split_line[7]] += 1
+        if split_line[-2] and split_line[-2] in allowed_codes.keys():
+            allowed_codes[split_line[-2]] += 1
     except:
         pass
 
