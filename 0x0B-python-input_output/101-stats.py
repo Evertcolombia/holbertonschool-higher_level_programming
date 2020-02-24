@@ -11,7 +11,7 @@ allowed_codes = {
 }
 
 
-def ten_times(file_size, allowed_codes):
+def ten_times():
 
     print("File size: {:d}".format(file_size))
 
@@ -22,7 +22,7 @@ def ten_times(file_size, allowed_codes):
 
 
 def handler(signal_received, frame):
-    ten_times(file_size, allowed_codes)
+    ten_times()
     sys.exit(0)
 
 for line in sys.stdin:
@@ -30,7 +30,7 @@ for line in sys.stdin:
     signal(SIGINT, handler)
 
     if count == 10:
-        ten_times(file_size, allowed_codes)
+        ten_times()
         count = 0
 
     split_line = line.split()
@@ -48,4 +48,4 @@ for line in sys.stdin:
 
     count += 1
 
-ten_times(file_size, allowed_codes)
+ten_times()
