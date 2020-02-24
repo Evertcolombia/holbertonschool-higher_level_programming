@@ -44,3 +44,5 @@ for line in sys.stdin:
         pass
 
     count += 1
+
+ten_times(file_size, allowed_codes)
