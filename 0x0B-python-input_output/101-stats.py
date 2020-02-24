@@ -41,7 +41,7 @@ for line in sys.stdin:
         pass
 
     try:
-        size = int(split_line[8])
+        size = int(split_line[-1])
         file_size += size
     except:
         pass
