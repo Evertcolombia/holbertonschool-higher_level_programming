@@ -17,6 +17,7 @@ def default_ptrace(attach, pid):
 
     #if err != 0:
      #   raise SystemError('ptrace', err)
+    print(err)
 
 
 if len(sys.argv) == 4:
