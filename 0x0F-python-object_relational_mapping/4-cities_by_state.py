@@ -18,11 +18,9 @@ if __name__ == "__main__":
         )
 
         cur = db.cursor()
-        d_query1 = "SELECT cities.id, cities,name, states.name "
-        d_query2 = "FROM states, cities WHERE states.id = cities.state_id "
-        d_query3 = d_query1 + d_query2 + "GROUP BY cities.id ASC"
 
-        cur.execute(d_query3)
+        cur.execute("""SELECT cities.id, cities.name, states.name FROM states,
+        cities WHERE states.id=cities.state_id ORDER BY cities.id ASC""")
         rows = cur.fetchall()
 
         for row in rows:
