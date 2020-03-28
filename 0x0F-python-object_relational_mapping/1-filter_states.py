@@ -25,4 +25,3 @@ else:
         print(row)
 
     cur.close()
-    db.close()
