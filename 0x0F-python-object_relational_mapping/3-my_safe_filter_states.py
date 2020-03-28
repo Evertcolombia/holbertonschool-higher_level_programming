@@ -20,8 +20,8 @@ if __name__ == "__main__":
 
         cur = db.cursor()
 
-        d_query = "SELECT * FROM states WHERE name=%(uname)s"
-        cur.execute(d_query, {'uname': name})
+        d_query = "SELECT * FROM states WHERE name=%s"
+        cur.execute(d_query, (name,))
 
         rows = cur.fetchall()
         for row in rows:
