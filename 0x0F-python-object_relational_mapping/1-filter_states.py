@@ -18,15 +18,8 @@ else:
     db = MySQLdb.connect(host=hos_t, user=usrn,  passwd=passw, db=db_name)
     cur = db.cursor()
 
-    try:
-        cur.execute("SELECT * FROM states WHERE (name REGEXP '^N')")
-        rows = cur.fetchall()
-    except MySQLdb.Error:
-        st = "MySQL Error [{%d}]: {}"
-        try:
-            print(st.format(MySQLdb.Error.args[0], MySQLdb.Error.args[1]))
-        except:
-            print("MySQL Error: {}".format(str(MySQLdb.Error)))
+    cur.execute("SELECT * FROM states WHERE (name REGEXP '^N')")
+    rows = cur.fetchall()
 
     for row in rows:
         print(row)
