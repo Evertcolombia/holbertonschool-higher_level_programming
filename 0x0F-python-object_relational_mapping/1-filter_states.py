@@ -6,25 +6,26 @@ import sys
 import MySQLdb
 
 
-if len(sys.argv) == 4:
-    usrn = sys.argv[1]
-    passw = sys.argv[2]
-    db_name = sys.argv[3]
+if __name__ == '__main__':
+    if len(sys.argv) == 4:
+        usrn = sys.argv[1]
+        passw = sys.argv[2]
+        db_name = sys.argv[3]
 
-    db = MySQLdb.connect(host='localhost',
-        port=3306,
-        user=usrn,
-        passwd=passw,
-        db=db_name
-    )
+        db = MySQLdb.connect(host='localhost',
+            port=3306,
+            user=usrn,
+            passwd=passw,
+            db=db_name
+        )
 
-    cur = db.cursor()
+        cur = db.cursor()
 
-    cur.execute("SELECT * FROM states WHERE (name REGEXP '^N') ORDER BY id ASC")
-    rows = cur.fetchall()
+        cur.execute("SELECT * FROM states WHERE (name REGEXP '^N') ORDER BY id ASC")
+        rows = cur.fetchall()
 
-    for row in rows:
-        print(row)
+        for row in rows:
+            print(row)
 
-    cur.close()
-    db.close()
+        cur.close()
+        db.close()
