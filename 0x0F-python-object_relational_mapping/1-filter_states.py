@@ -1,25 +1,30 @@
 #!/usr/bin/python3
-'''This script list states with a name starting with N (upper N)'''
+"""
+    Script to conect to a sql db using MySQLdb client in python
+"""
 import sys
 import MySQLdb
 
-if len(sys.argv) == 4:
-    username = sys.argv[1]
-    password = sys.argv[2]
-    database = sys.argv[3]
 
-    mydb = MySQLdb.connect(
-        host="localhost",
-        user=username,
-        passwd=password,
-        database=database
+if len(sys.argv) == 4:
+    usrn = sys.argv[1]
+    passw = sys.argv[2]
+    db_name = sys.argv[3]
+
+    db = MySQLdb.connect(host='localhost',
+        port=3306,
+        user=usrn,
+        passwd=passw,
+        db=db_name
     )
 
-    mycursor = mydb.cursor()
-    mycursor.execute("SELECT * FROM states WHERE (name REGEXP '^N')")
-    myresult = mycursor.fetchall()
+    cur = db.cursor()
 
-    for data in myresult:
-        print(data)
+    cur.execute("SELECT * FROM states WHERE (name REGEXP '^N') ORDER BY id ASC")
+    rows = cur.fetchall()
 
-    mycursor.close()
+    for row in rows:
+        print(row)
+
+    cur.close()
+    db.close()
