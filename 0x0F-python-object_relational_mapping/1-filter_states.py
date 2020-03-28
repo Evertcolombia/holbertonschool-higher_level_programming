@@ -6,10 +6,7 @@ import MySQLdb
     Script to conect to a sql db using MySQLdb client in python
 """
 
-if len(sys.argv) != 4:
-    print("arguments must be 3")
-    sys.exit(1)
-else:
+if len(sys.argv) == 4:
     usrn = sys.argv[1]
     passw = sys.argv[2]
     db_name = sys.argv[3]
