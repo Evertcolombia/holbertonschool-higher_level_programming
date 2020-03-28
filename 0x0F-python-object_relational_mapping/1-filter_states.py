@@ -1,10 +1,10 @@
 #!/usr/bin/python3
-import sys
-import MySQLdb
-
 """
     Script to conect to a sql db using MySQLdb client in python
 """
+import sys
+import MySQLdb
+
 
 if len(sys.argv) == 4:
     usrn = sys.argv[1]
