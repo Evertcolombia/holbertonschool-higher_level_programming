@@ -11,7 +11,13 @@ if len(sys.argv) == 4:
     passw = sys.argv[2]
     db_name = sys.argv[3]
 
-    db = MySQLdb.connect(host='localhost', user=usrn,  passwd=passw, db=db_name)
+    db = MySQLdb.connect(host='localhost',
+        port=3306,
+        user=usrn,
+        passwd=passw,
+        db=db_name
+    )
+
     cur = db.cursor()
 
     cur.execute("SELECT * FROM states WHERE (name REGEXP '^N')")
@@ -21,3 +27,4 @@ if len(sys.argv) == 4:
         print(row)
 
     cur.close()
+    db.close()
