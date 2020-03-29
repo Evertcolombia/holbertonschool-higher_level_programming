@@ -16,5 +16,5 @@ if __name__ == "__main__":
     Session = sessionmaker(bind=engine)
     Session = Session()
 
-    query = Session.query(State).order_by(State.id).first()
+    query = Session.query(State).first()
     print("{}: {}".format(query.id, query.name))
