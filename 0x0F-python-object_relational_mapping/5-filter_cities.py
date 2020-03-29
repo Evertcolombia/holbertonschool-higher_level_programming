@@ -24,8 +24,7 @@ if __name__ == "__main__":
         cur.execute(d_query, (s_name,))
 
         rows = cur.fetchall()
-        c = 0
-        l = len(rows)
+        c, l = 0, len(rows)
 
         for row in rows:
             print(row[0], end=', ')  if (c < l - 1) else print(row[0], end='')
