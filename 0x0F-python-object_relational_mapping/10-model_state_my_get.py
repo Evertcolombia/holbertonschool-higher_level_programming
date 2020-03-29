@@ -16,6 +16,6 @@ if __name__ == "__main__":
     Session = Session()
 
     query = Session.query(State).filter(State.name==s_name)
-    
-    for el in query:
-        print(el.id)
+
+    [print(el.id) for el in query] if query is not None else print('Not found')
+
