@@ -15,7 +15,7 @@ if __name__ == "__main__":
     Session = sessionmaker(bind=engine)
     Session = Session()
 
-    query = Session.query(State).filter(State.name==s_name)
+    query = Session.query(State).filter(State.name==s_name).first()
 
-    [print(el.id) for el in query] if query is not None else print('Not found')
+    print(query.id) if (query is not None) else print('Not found')
 
