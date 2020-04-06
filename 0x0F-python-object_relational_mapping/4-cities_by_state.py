@@ -14,8 +14,7 @@ if __name__ == "__main__":
                              port=3306,
                              user=uname,
                              passwd=passw,
-                            db=d_base
-        )
+                            db=d_base)
 
         cur = db.cursor()
 

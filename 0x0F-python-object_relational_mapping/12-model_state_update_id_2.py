@@ -10,11 +10,14 @@ if __name__ == '__main__':
 
     s_name = 'New Mexico'
     st = 'mysql+mysqldb://{}:{}@localhost/{}'
-    engine = create_engine(st.format(sys.argv[1], sys.argv[2], sys.argv[3]), pool_pre_ping=True)
+    engine = create_engine(st.format(sys.argv[1],
+                                     sys.argv[2],
+                                     sys.argv[3]),
+                                     pool_pre_ping=True)
 
     Session = sessionmaker(bind=engine)
     Session = Session()
 
     query = Session.query(State).filter_by(id=2)
-    query.update({State.name: s_name}, synchronize_session = False)
+    query.update({State.name: s_name}, synchronize_session=False)
     Session.commit()
