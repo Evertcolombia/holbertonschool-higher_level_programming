@@ -16,11 +16,14 @@ else:
     state_name = sys.argv[4]
     hos_t = "localhost"
 
-    db = MySQLdb.connect(host=hos_t, user=usrn,  passwd=passw, db=db_name)
+    db = MySQLdb.connect(host=hos_t,
+                         user=usrn,
+                         passwd=passw,
+                         db=db_name)
     cur = db.cursor()
 
-    data_query = "SELECT * FROM states WHERE name='{}'".format(state_name)
-    cur.execute(data_query)
+    q = "SELECT * FROM states WHERE name LIKE BINARY '{}%'".format(state_name)
+    cur.execute(q)
 
     rows = cur.fetchall()
     for row in rows:
@@ -28,4 +31,3 @@ else:
 
     cur.close()
     db.close()
-
