@@ -12,10 +12,10 @@ if __name__ == "__main__":
         s_name = sys.argv[4]
 
         db = MySQLdb.connect(host='localhost',
-            port=3306,
-            user=uname,
-            passwd=passw,
-            db=d_base
+                             port=3306,
+                             user=uname,
+                             passwd=passw,
+                             db=d_base
         )
 
         cur = db.cursor()
@@ -27,7 +27,7 @@ if __name__ == "__main__":
         c, l = 0, len(rows)
 
         for row in rows:
-            print(row[0], end=', ')  if (c < l - 1) else print(row[0], end='')
+            print(row[0], end=', ') if (c < l - 1) else print(row[0], end='')
             c += 1
         print()
 
