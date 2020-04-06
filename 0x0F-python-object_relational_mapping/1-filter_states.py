@@ -16,8 +16,7 @@ if __name__ == '__main__':
                              port=3306,
                              user=usrn,
                              passwd=passw,
-                             db=db_name
-                             )
+                             db=db_name)
 
         cur = db.cursor()
         q = """SELECT * FROM states WHERE (name LIKE BINARY 'N%') ORDER BY id ASC"""
