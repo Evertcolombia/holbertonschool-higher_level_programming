@@ -13,4 +13,4 @@ if __name__ == "__main__":
 
     print('Body Response:')
     for el in res_headers:
-        print('\t- {}: {}'.format(el[0], el[1]))
+        print('    - {}: {}'.format(el[0], el[1]))
