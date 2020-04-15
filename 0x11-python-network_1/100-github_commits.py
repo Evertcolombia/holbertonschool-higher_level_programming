@@ -8,6 +8,6 @@ if __name__ == "__main__":
 
     obj = res.json()
     for el in obj[0:10]:
-        sha = el.get('sha')
-        author = el.get('commit').get('author').get('name')
+        sha = el['sha']
+        author = el['commit']['author']['name']
         print("{}: {}".format(sha, author))
