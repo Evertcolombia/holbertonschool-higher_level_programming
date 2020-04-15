@@ -14,6 +14,8 @@ if __name__ == "__main__":
         obj = res.json()
         _id = obj['id']
         print(_id)
+        #for k,v in obj.items():
+         #   print("{}: {}".format(k, v))
     except:
         print("None")
 
