@@ -7,10 +7,8 @@ if __name__ == "__main__":
     with request.urlopen(url) as response:
         content = response.read()
 
-    res_headers = [['type', type(content)],
-                   ['content', content],
-                   ['utf content', content.decode('utf-8')]]
+        res_headers = [['type', type(content)], ['content', content], ['utf content', content.decode('utf-8')]]
 
-    print('Body Response:')
-    for el in res_headers:
-        print('    - {}: {}'.format(el[0], el[1]))
+        print('Body Response:')
+        for el in res_headers:
+            print('    - {}: {}'.format(el[0], el[1]))
