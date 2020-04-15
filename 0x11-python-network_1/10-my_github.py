@@ -3,19 +3,13 @@ import requests
 from sys import argv
 
 if __name__ == "__main__":
-    url = "https://api.github.com/user"
-    username = argv[1]
-    password = argv[2]
 
-    res = requests.get(url, auth=(username, password))
+    res = requests.get("https://api.github.com/user", auth=(argv[1], argv[2]))
     res.raise_for_status()
 
-    try:
+    if "id" in res.json():
         obj = res.json()
-        _id = obj['id']
+        _id = obj.get('id')
         print(_id)
-        #for k,v in obj.items():
-         #   print("{}: {}".format(k, v))
-    except:
+    else:
         print("None")
-
