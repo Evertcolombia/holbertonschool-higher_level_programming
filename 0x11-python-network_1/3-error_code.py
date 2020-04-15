@@ -1,15 +1,13 @@
 #!/usr/bin/python3
-from urllib import request
+from urllib import request, error
 from sys import argv
 
 
 if __name__ == "__main__":
-    url = argv[1]
 
-    req = request.Request(url)
     try:
-        with request.urlopen(req) as response:
+        with request.urlopen(argv[1]) as response:
             res = response.read()
             print(res.decode('utf-8'))
-    except urllib.error.HTTPError as e:
+    except error.HTTPError as e:
         print("Error code: {}".format(e.code))
