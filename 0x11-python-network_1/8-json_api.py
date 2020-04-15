@@ -5,22 +5,27 @@ from sys import argv
 
 
 if __name__ == "__main__":
-    url = "http://0.0.0.0:5000/search_user"
-    payload = {}
-    if argv[1]:
-        payload['q'] = argv[1]
-    else:
-        payload['q'] = ""
-    res = requests.post(url, data=payload)
-    res.raise_for_status()
+    if len(argv) == 2:
+        url = "http://0.0.0.0:5000/search_user"
+        payload = {}
 
-    try:
-        obj = res.json()
+        if argv[1]:
+            payload['q'] = argv[1]
+        else:
+            payload['q'] = ""
+            
+        res = requests.post(url, data=payload)
+        res.raise_for_status()
+
         try:
-            _id = "[{}] ".format(obj['id'])
-            name = "{}".format(obj['name'])
-            print(_id + name)
+            obj = res.json()
+            try:
+                _id = "[{}] ".format(obj['id'])
+                name = "{}".format(obj['name'])
+                print(_id + name)
+            except:
+                print('No result')
         except:
-            print('No result')
-    except:
-        print('Not a valid JSON')
+            print('Not a valid JSON')
+    else:
+        print('No result')
