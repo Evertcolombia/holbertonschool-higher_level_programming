@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 import requests
 from sys import argv
-#"http://21701fe1a6fd.19.hbtn-cod.io:5000/search_user"
+# http://21701fe1a6fd.19.hbtn-cod.io:5000/search_user
 
 
 if __name__ == "__main__":
@@ -13,7 +13,7 @@ if __name__ == "__main__":
             payload['q'] = argv[1]
         else:
             payload['q'] = ""
-            
+
         res = requests.post(url, data=payload)
         res.raise_for_status()
 
