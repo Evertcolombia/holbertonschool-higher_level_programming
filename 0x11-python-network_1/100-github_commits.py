@@ -11,8 +11,8 @@ if __name__ == "__main__":
     try:
         obj = res.json()
         for el in obj[0:10]:
-            sha = el['sha']
-            author = el['commit']['author']['name']
+            sha = el.get('sha')
+            author = el('commit').get('author').get('name')
             print("{}: {}".format(sha, author))
     except:
         print("None")
