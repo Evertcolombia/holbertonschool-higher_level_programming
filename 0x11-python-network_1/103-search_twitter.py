@@ -8,18 +8,15 @@ from sys import argv
 def get_bearer_token(apiKey, secretKey, searchSt):
     """ Get the bearer token from url passed a argument [2] """
 
-    # encode public and private api key
     bearerToken = '{}:{}'.format(apiKey, secretKey)
     Token = urlsafe_b64encode(bearerToken.encode('ascii')).decode('ascii')
 
-    # set data and headers from connect to auth api
     data = {"grant_type": "client_credentials"}
-    headers = {"Authorization": "Basic {}".format(Token)
-        ,"Content-Type": "application/x-www-form-urlencoded;charset=UTF-8"}
+    headers = {"Authorization": "Basic {}".format(
+        Token),
+        "Content-Type": "application/x-www-form-urlencoded;charset=UTF-8"}
 
-    # send post request and get an access token
     accessToken = post_request(headers, data)
-    #send a get data yusing the access token and get tweets lisrt back
     tweets = get_request(accessToken, searchSt)
 
     list_tweets = tweets.get('statuses')
@@ -33,7 +30,6 @@ def post_request(headers, data):
     res = requests.post(authUrl, headers=headers, data=data)
     to_json = res.json()
     accessToken = to_json['access_token']
-
     return accessToken
 
 
@@ -42,9 +38,7 @@ def get_request(accessToken, searchSt):
 
     url = 'https://api.twitter.com/1.1/search/tweets.json'
     headers = {"Authorization": "Bearer {}".format(accessToken)}
-    params = {'q': searchSt,
-        'result_type': 'recent',
-        'count': 5}
+    params = {'q': searchSt, 'result_type': 'recent', 'count': 5}
 
     res = requests.get(url, headers=headers, params=params)
     tweets = res.json()
@@ -53,7 +47,7 @@ def get_request(accessToken, searchSt):
 
 if __name__ == "__main__":
 
-    list_tweets =  get_bearer_token(argv[1], argv[2], argv[3])
+    list_tweets = get_bearer_token(argv[1], argv[2], argv[3])
 
     for el in list_tweets:
         _id = el['id']
