@@ -1,4 +1,7 @@
 #!/usr/bin/node
 
 const list = ['C is fun', 'Python is cool', 'Javascript is amazing'];
-list.forEach(val => console.log(val));
+let i = 0;
+for (; i < list.length; i++) {
+  console.log(list[i]);
+}
