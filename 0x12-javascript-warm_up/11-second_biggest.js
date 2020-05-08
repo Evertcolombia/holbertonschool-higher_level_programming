@@ -2,12 +2,20 @@
 
 const length = process.argv.length;
 
-if (length > 3) {
-  let sort = [];
+if (length < 3) {
+  console.log(0);
+} else if (length === 3) {
+  console.log(0);
+} else {
+  let sor = [];
   for (let i = 2; i < length; i++) {
-    sort.push(process.argv[i]);
+    sor.push(parseInt(process.argv[i]));
   }
-  sort = sort.sort();
-  const len = sort.length;
-  console.log(sort[len - 2]);
+
+  sor = sor.sort((a, b) => {
+    return (a - b);
+  });
+
+  const len = sor.length;
+  console.log(sor[len - 2]);
 }
