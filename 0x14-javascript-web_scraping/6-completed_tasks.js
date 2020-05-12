@@ -10,10 +10,12 @@ request(url, (error, response, body) => {
 
   for (const x in data) {
     if (data[x].completed) {
-      if (results.hasOwnProperty(data[x].userId)) {
-        results[data[x].userId] += 1;
+      const userId = data[x].userId;
+      const isInResults = results.hasOwnProperty(userId);
+      if (isInResults) {
+        results[userId] += 1;
       } else {
-        results[data[x].userId] = 1;
+        results[userId] = 1;
       }
     }
   }
