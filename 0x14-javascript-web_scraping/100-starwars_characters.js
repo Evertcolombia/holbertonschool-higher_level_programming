@@ -3,15 +3,38 @@
 const request = require('request');
 const filmsUrl = 'https://swapi-api.hbtn.io/api/films/'.concat(process.argv[2]);
 
-request(filmsUrl, (error, response, body) => {
-  if (error) return console.log('error', error);
-  const data = JSON.parse(body).characters;
-
-  for (const x in data) {
-    request(data[x], (error, response, body) => {
-      if (error) return console.log('error', error);
-      const character = JSON.parse(body).name;
-      console.log(character);
+function doRequest (url) {
+  return new Promise((resolve, reject) => {
+    request(url, (error, response) => {
+      error ? reject(error) : resolve(response);
     });
+  });
+}
+
+async function getFilm (url) {
+  let res = await doRequest(url);
+  res = JSON.parse(res.body).characters;
+  return res;
+}
+
+async function getCharacters (data) {
+  for (const x in data) {
+    const res = await doRequest(data[x]);
+    console.log(JSON.parse(res.body).name);
   }
-});
+}
+
+(async () => {
+  let film = '';
+  try {
+    film = await getFilm(filmsUrl);
+  } catch (err) {
+    console.log(err);
+  }
+
+  try {
+    await getCharacters(film);
+  } catch (err) {
+    console.log(err);
+  }
+})();

@@ -8,7 +8,7 @@ function doTask (data, results) {
   for (const x in data) {
     if (data[x].completed) {
       const userId = data[x].userId;
-      if (results.hasOwnProperty(userId)) {
+      if (Object.prototype.hasOwnProperty.call(results, userId)) {
         results[userId] += 1;
       } else {
         results[userId] = 1;
