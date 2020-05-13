@@ -45,10 +45,6 @@ async function bearer () {
   };
 
   const res = await doRequest(options);
-  if (res.statusCode !== 200) {
-    const error = res.body.errors.pop();
-    throw Error(`Error ${error.code}: ${error.message}`);
-  }
   return JSON.parse(res.body).access_token;
 }
 
