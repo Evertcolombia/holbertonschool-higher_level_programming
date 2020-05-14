@@ -28,11 +28,6 @@ async function getCharacters (data) {
   let film = '';
   try {
     film = await getFilm(filmsUrl);
-  } catch (err) {
-    console.log(err);
-  }
-
-  try {
     await getCharacters(film);
   } catch (err) {
     console.log(err);

@@ -48,26 +48,27 @@ async function bearer () {
   return JSON.parse(res.body).access_token;
 }
 
+function showTweets (data) {
+  const elem = data.statuses;
+  for (const x in elem) {
+    const st = `[${elem[x].id}] ${elem[x].text} by ${elem[x].user.name}`;
+    console.log(st);
+  }
+}
+
 (async () => {
   let accessT = '';
   const stSearch = process.argv[4];
 
   try {
     accessT = await bearer();
-  } catch (e) {
-    console.error(`Could not generate a Bearer token. Please check that your credentials are correct and that the Filtered Stream preview is enabled in your Labs dashboard. (${e})`);
-    process.exit(-1);
-  }
-
-  try {
-    const tweets = await getTweets(stSearch, accessT);
-    const elem = tweets.statuses;
-    for (const x in elem) {
-      const st = `[${elem[x].id}] ${elem[x].text} by ${elem[x].user.name}`;
-      console.log(st);
+    try {
+      const tweets = await getTweets(stSearch, accessT);
+      showTweets(tweets);
+    } catch (e) {
+      return console.error(e);
     }
   } catch (e) {
-    console.error(e);
-    process.exit(-1);
+    return console.error(`Could not generate a Bearer token. Please check that your credentials are correct and that the Filtered Stream preview is enabled in your Labs dashboard. (${e})`);
   }
 })();
