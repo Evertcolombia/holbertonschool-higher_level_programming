@@ -44,6 +44,4 @@ Here is the complete list of projects in this repository, each project has its d
 Each project and task contains the instructions to compile the code and execute the results.
 
 ## Contributors
-* **Santiago Arboleda Londoño** ([@monoprosito](https://github.com/monoprosito)), for writing the solutions to the exercises.
-* **Julien Barbier** ([@jbarbier](https://github.com/jbarbier)), for providing tests scripts.
-* **Guillaume Salva** ([@papamuziko](https://github.com/papamuziko)), for providing tests scripts.
+* **Evert Escalante** ([@evertcolombia](https://github.com/evertcolombia))
